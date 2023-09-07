@@ -2,6 +2,7 @@
         function convertToCelsius() {
             const fahrenheitInput = document.getElementById("fahrenheit");
             const celsiusInput = document.getElementById("celsius");
+            const kelvinInput = document.getElementById("kelvin");
             const result = document.getElementById("result");
 
             const fahrenheitValue = parseFloat(fahrenheitInput.value);
@@ -17,6 +18,7 @@
         function convertToFahrenheit() {
             const fahrenheitInput = document.getElementById("fahrenheit");
             const celsiusInput = document.getElementById("celsius");
+            const kelvinInput = document.getElementById("kelvin");
             const result = document.getElementById("result");
 
             const celsiusValue = parseFloat(celsiusInput.value);
@@ -31,6 +33,7 @@
 
         function convertToKelvin() {
             const celsiusInput = document.getElementById("celsius");
+            const fahrenheitInput = document.getElementById("fahrenheit");
             const kelvinInput = document.getElementById("kelvin");
             const result = document.getElementById("result");
         
