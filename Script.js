@@ -28,4 +28,20 @@
                 result.innerHTML = "Please enter a valid Celsius temperature.";
             }
         }
+
+        function convertToKelvin() {
+            const celsiusInput = document.getElementById("celsius");
+            const kelvinInput = document.getElementById("kelvin");
+            const result = document.getElementById("result");
+        
+            const celsiusValue = parseFloat(celsiusInput.value);
+            if (!isNaN(celsiusValue)) {
+                const kelvinValue = celsiusValue + 273.15;
+                kelvinInput.value = kelvinValue.toFixed(2);
+                result.innerHTML = `${celsiusValue.toFixed(2)}°C is ${kelvinValue.toFixed(2)} K.`;
+            } else {
+                result.innerHTML = "Please enter a valid Celsius temperature.";
+            }
+        }
+        
     
