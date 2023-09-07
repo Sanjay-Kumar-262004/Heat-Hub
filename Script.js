@@ -1,59 +1,29 @@
-function convertToCelsius() {
-    const fahrenheitInput = document.getElementById("fahrenheit");
-    const celsiusInput = document.getElementById("celsius");
-    const kelvinInput = document.getElementById("kelvin");
-    const result = document.getElementById("result");
+document.addEventListener("DOMContentLoaded", function () {
+    const temperatureInput = document.getElementById("temperature");
+    const unitSelect = document.getElementById("unit");
+    const convertBtn = document.getElementById("convert-btn");
+    const resultDiv = document.getElementById("result");
 
-    const fahrenheitValue = parseFloat(fahrenheitInput.value);
-    if (!isNaN(fahrenheitValue)) {
-        const celsiusValue = (fahrenheitValue - 32) * 5/9;
-        const kelvinValue = celsiusValue + 273.15;
+    convertBtn.addEventListener("click", function () {
+        const temperature = parseFloat(temperatureInput.value);
+        const unit = unitSelect.value;
 
-        celsiusInput.value = celsiusValue.toFixed(2);
-        kelvinInput.value = kelvinValue.toFixed(2);
-
-        result.innerHTML = `${fahrenheitValue.toFixed(2)}°F is ${celsiusValue.toFixed(2)}°C and ${kelvinValue.toFixed(2)} K.`;
-    } else {
-        result.innerHTML = "Please enter a valid Fahrenheit temperature.";
-    }
-}
-
-function convertToFahrenheit() {
-    const fahrenheitInput = document.getElementById("fahrenheit");
-    const celsiusInput = document.getElementById("celsius");
-    const kelvinInput = document.getElementById("kelvin");
-    const result = document.getElementById("result");
-
-    const celsiusValue = parseFloat(celsiusInput.value);
-    if (!isNaN(celsiusValue)) {
-        const fahrenheitValue = (celsiusValue * 9/5) + 32;
-        const kelvinValue = celsiusValue + 273.15;
-
-        fahrenheitInput.value = fahrenheitValue.toFixed(2);
-        kelvinInput.value = kelvinValue.toFixed(2);
-
-        result.innerHTML = `${celsiusValue.toFixed(2)}°C is ${fahrenheitValue.toFixed(2)}°F and ${kelvinValue.toFixed(2)} K.`;
-    } else {
-        result.innerHTML = "Please enter a valid Celsius temperature.";
-    }
-}
-
-function convertToKelvin() {
-    const fahrenheitInput = document.getElementById("fahrenheit");
-    const celsiusInput = document.getElementById("celsius");
-    const kelvinInput = document.getElementById("kelvin");
-    const result = document.getElementById("result");
-
-    const fahrenheitValue = parseFloat(fahrenheitInput.value);
-    if (!isNaN(fahrenheitValue)) {
-        const celsiusValue = (fahrenheitValue - 32) * 5/9;
-        const kelvinValue = celsiusValue + 273.15;
-
-        kelvinInput.value = kelvinValue.toFixed(2);
-        celsiusInput.value = celsiusValue.toFixed(2);
-
-        result.innerHTML = `${fahrenheitValue.toFixed(2)}°F is ${kelvinValue.toFixed(2)} K and ${celsiusValue.toFixed(2)}°C.`;
-    } else {
-        result.innerHTML = "Please enter a valid Fahrenheit temperature.";
-    }
-}
+        if (!isNaN(temperature)) {
+            if (unit === "celsius") {
+                const fahrenheit = (temperature * 9/5) + 32;
+                const kelvin = temperature + 273.15;
+                resultDiv.innerHTML = `${temperature.toFixed(2)}°C is ${fahrenheit.toFixed(2)}°F and ${kelvin.toFixed(2)} K.`;
+            } else if (unit === "fahrenheit") {
+                const celsius = (temperature - 32) * 5/9;
+                const kelvin = celsius + 273.15;
+                resultDiv.innerHTML = `${temperature.toFixed(2)}°F is ${celsius.toFixed(2)}°C and ${kelvin.toFixed(2)} K.`;
+            } else if (unit === "kelvin") {
+                const celsius = temperature - 273.15;
+                const fahrenheit = (celsius * 9/5) + 32;
+                resultDiv.innerHTML = `${temperature.toFixed(2)} K is ${celsius.toFixed(2)}°C and ${fahrenheit.toFixed(2)}°F.`;
+            }
+        } else {
+            resultDiv.innerHTML = "Please enter a valid temperature value.";
+        }
+    });
+});

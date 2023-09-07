@@ -1,26 +1,30 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Temperature Converter</title>
-    <link rel="stylesheet" href="Style.css">
-    <link rel="icon" href="temperature.png">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header><h1>Temperature Converter</h1></header>
+    <header>Temperature Converter</header>
     <div class="container">
-        <label for="celsius">Celsius:</label>
-        <input type="number" id="celsius">
-        <label for="fahrenheit">Fahrenheit:</label>
-        <input type="number" id="fahrenheit">
-        <label for="kelvin">Kelvin:</label>
-        <input type="number" id="kelvin">
-        <button onclick="convertToCelsius()">Convert to Celsius</button>
-        <button onclick="convertToFahrenheit()">Convert to Fahrenheit</button>
-        <button onclick="convertToKelvin()">Convert to Kelvin</button>
-        <div id="result"></div>
+        
+        <div class="input-container">
+            <label for="temperature">Enter Temperature:</label>
+            <input type="number" id="temperature" placeholder="Enter temperature">
+        </div>
+        <div class="unit-container">
+            <label for="unit">Select Unit:</label>
+            <select id="unit">
+                <option value="celsius">Celsius (°C)</option>
+                <option value="fahrenheit">Fahrenheit (°F)</option>
+                <option value="kelvin">Kelvin (K)</option>
+            </select>
+        </div>
+        <button id="convert-btn"><span>Convert </span></button>
+        <div class="result" id="result"></div>
     </div>
-    <script src="Script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
