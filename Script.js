@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const temperature = parseFloat(temperatureInput.value);
         const unit = unitSelect.value;
 
-        if (!isNaN(temperature)) {
+        if (!isNaN(temperature)){
             if (unit === "celsius") {
                 const fahrenheit = (temperature * 9/5) + 32;
                 const kelvin = temperature + 273.15;
