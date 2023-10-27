@@ -8,8 +8,9 @@
 body {
     min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     background: black;
     font-size: 25px;
     font-weight: 500;
@@ -22,15 +23,20 @@ body {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     text-align: center;
-    max-width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 header {
     text-align: center;
-    margin-bottom: 20px;
     color: #333;
     font-size: 30px;
     font-weight: 700;
+    margin-bottom: 20px;
 }
 
 .input-container {
@@ -50,6 +56,19 @@ input, select {
     margin-top: 5px;
 }
 
+.unit-container {
+    margin-bottom: 20px; /* Add space between Select Unit and Convert button */
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
 button {
     border-radius: 4px;
     background-color: gray;
@@ -59,15 +78,32 @@ button {
     font-size: 24px;
     padding: 15px;
     width: 100%;
-    transition: all 0.5s;
+    transition: all 0.3s; 
     cursor: pointer;
     margin: 5px;
+    position: relative; /* Create a relative positioning context for the pseudo-element */
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3); /* Transparent background */
+    transition: width 0.2s; 
+}
+
+button:hover::before {
+    width: 100%; /* Expand the background on hover */
 }
 
 button span {
     cursor: pointer;
     display: inline-block;
     position: relative;
+    z-index: 2; /* Ensure text is on top of the pseudo-element */
     transition: 0.5s;
 }
 
@@ -94,12 +130,17 @@ button:hover span:after {
     font-weight: bold;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     body {
-        font-size: 30px;
+        font-size: 20px;
     }
 
     .container {
-        max-width: 400px;
+        max-width: 90%;
+    }
+
+    button {
+        font-size: 20px;
+        padding: 10px;
     }
 }
